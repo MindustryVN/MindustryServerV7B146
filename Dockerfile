@@ -11,4 +11,4 @@ FROM eclipse-temurin:17-jre-alpine
 
 COPY --from=build /home/gradle/src/server/build/libs/*.jar /app/server.jar
 
-ENTRYPOINT ["java","-Xmx350m" ,"-jar", "/app/server.jar"]
+ENTRYPOINT ["java","-XX:ErrorFile=/config/hs_err_pid%p.log", "-Xmx350m" ,"-jar", "/app/server.jar"]
