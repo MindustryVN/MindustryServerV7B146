@@ -6,8 +6,7 @@ WORKDIR /home/gradle/src
 RUN chmod +x ./gradlew
 RUN ./gradlew server:dist --build-cache --stacktrace
 
-FROM eclipse-temurin:17-jre-alpine
-
+FROM eclipse-temurin:17
 
 COPY --from=build /home/gradle/src/server/build/libs/*.jar /app/server.jar
 
