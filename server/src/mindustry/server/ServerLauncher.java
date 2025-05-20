@@ -86,13 +86,7 @@ public class ServerLauncher implements ApplicationListener {
             }
         });
 
-        mods.eachClass(mod -> {
-            try {
-                mod.init();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
+        mods.eachClass(mod -> mod.init());
 
         Events.fire(new ServerLoadEvent());
     }
