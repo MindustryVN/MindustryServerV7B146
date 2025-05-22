@@ -10,4 +10,4 @@ FROM eclipse-temurin:17
 
 COPY --from=build /home/gradle/src/server/build/libs/*.jar /app/server.jar
 
-ENTRYPOINT ["java","-XX:ErrorFile=/config/hs_err_pid%p.log", "-Xmx350m" ,"-jar", "/app/server.jar"]
+ENTRYPOINT ["java","-XX:ErrorFile=/config/hs_err_pid%p.log", "-XX:NativeMemoryTracking=summary", "-XX:+UnlockDiagnosticVMOptions", "-Xmx350m" ,"-jar", "/app/server.jar"]
