@@ -203,7 +203,7 @@ public class NetServer implements ApplicationListener {
             Seq<String> extraMods = packet.mods.copy();
             Seq<String> missingMods = mods.getIncompatibility(extraMods);
 
-            var isHub = Config.all.find(conf -> conf.name.equalsIgnoreCase("port")).num() == 6567;
+            var isHub = System.getProperty("IS_HUB", "false").equalsIgnoreCase("true");
 
             if (!isHub){       
                 if(!extraMods.isEmpty() || !missingMods.isEmpty()){
