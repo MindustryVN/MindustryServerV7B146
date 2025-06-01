@@ -205,9 +205,9 @@ public class NetServer implements ApplicationListener {
 
             var isHub = System.getProperty("IS_HUB", "false").equalsIgnoreCase("true");
 
-            if (!isHub){       
-                if(!extraMods.isEmpty() || !missingMods.isEmpty()){
-                        // can't easily be localized since kick reasons can't have formatted text with
+            if (!isHub) {
+                if (!extraMods.isEmpty() || !missingMods.isEmpty()) {
+                    // can't easily be localized since kick reasons can't have formatted text with
                     // them
                     StringBuilder result = new StringBuilder("[accent]Incompatible mods![]\n\n");
                     if (!missingMods.isEmpty()) {
@@ -215,13 +215,13 @@ public class NetServer implements ApplicationListener {
                         result.append("[]\n");
                     }
 
-                    if(!extraMods.isEmpty()){
-                    result.append("Unnecessary mods:[lightgray]\n").append(">").append(extraMods.toString("\n> "));
+                    if (!extraMods.isEmpty()) {
+                        result.append("Unnecessary mods:[lightgray]\n").append(">").append(extraMods.toString("\n> "));
                     }
                     con.kick(result.toString(), 0);
                     return;
-                    }
-            }   
+                }
+            }
 
             if (!admins.isWhitelisted(packet.uuid, packet.usid)) {
                 info.adminUsid = packet.usid;
