@@ -10,6 +10,6 @@ FROM eclipse-temurin:17
 
 COPY --from=build /home/gradle/src/server/build/libs/*.jar /app/server.jar
 
-ENTRYPOINT ["java","-Xmx256m","-XX:ErrorFile=/config/hs_err_pid%p.log","-XX:+HeapDumpOnOutOfMemoryError", "-XX:HeapDumpPath=/config/heap.hprof", "-XX:NativeMemoryTracking=summary", "-XX:+UnlockDiagnosticVMOptions" ,"-jar", "/app/server.jar"]
+ENTRYPOINT ["java","-Xmx448m","-XX:ErrorFile=/config/hs_err_pid%p.log","-XX:+HeapDumpOnOutOfMemoryError", "-XX:HeapDumpPath=/config/heap.hprof", "-XX:NativeMemoryTracking=summary", "-XX:+UnlockDiagnosticVMOptions" ,"-jar", "/app/server.jar"]
 
 
